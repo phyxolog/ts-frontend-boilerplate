@@ -36,19 +36,19 @@ module.exports = {
       }
     ]
   },
-	resolve: {
-		modules: [
-			"node_modules",
-			path.resolve(__dirname, "src"),
-		],
-		extensions: [".js", ".jsx", ".sass", ".json", ".css", ".ts", ".tsx"]
-	},
-	performance: {
-		hints: "warning",
-		maxAssetSize: 2000000,
-		maxEntrypointSize: 4000000
-	},
-	parallelism: 2,
+  resolve: {
+    modules: [
+      "node_modules",
+      path.resolve(__dirname, "src"),
+    ],
+    extensions: [".js", ".jsx", ".sass", ".json", ".css", ".ts", ".tsx"]
+  },
+  performance: {
+    hints: "warning",
+    maxAssetSize: 2000000,
+    maxEntrypointSize: 4000000
+  },
+  parallelism: 2,
   plugins: [
     new WebpackCleanupPlugin(),
     new HtmlWebpackPlugin({
