@@ -1,0 +1,19 @@
+{
+  "name": "frontend-boilerplate",
+  "version": "0.0.1",
+  "description": "Frontend Boilerplate with React, MobX & TypeScript",
+  "main": "src/index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/phyxolog/ts-frontend-boilerplate.git"
+  },
+  "author": "Yura Zhivaga <yzhivaga@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phyxolog/ts-frontend-boilerplate/issues"
+  },
+  "homepage": "https://github.com/phyxolog/ts-frontend-boilerplate#readme"
+}
