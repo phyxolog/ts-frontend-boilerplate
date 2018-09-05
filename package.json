@@ -43,6 +43,7 @@
     "style-loader": "^0.23.0",
     "ts-loader": "^5.0.0",
     "typescript": "^3.0.3",
+    "webpack": "^4.17.2",
     "webpack-cleanup-plugin": "^0.5.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.7"
@@ -54,7 +55,6 @@
     "mobx-react-router": "^4.0.4",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-router": "^4.3.1",
-    "webpack": "^4.17.2"
+    "react-router": "^4.3.1"
   }
 }
