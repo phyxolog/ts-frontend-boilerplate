@@ -23,7 +23,47 @@ module.exports = {
         test: /\.tsx?$/,
         use: "ts-loader",
         exclude: /node_modules/
-      }
+      },
+
+      {
+        test: /\.sass$/,
+        loaders: [
+          "style-loader",
+          "css-loader",
+          "postcss-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              includePaths: [
+                path.resolve(__dirname, "src")
+              ]
+            }
+          }
+        ]
+      },
+
+      {
+        test: /\.css$/,
+        loaders: ["style-loader", "css-loader", "postcss-loader"]
+      },
+
+			{
+				test: /\.(svg|woff|woff2|ttf|otf|png|jpg)$/,
+				include: [
+					path.resolve(__dirname, "node_modules"),
+					path.resolve(__dirname, "src"),
+				],
+				loader: "url-loader",
+				query: {
+					limit: 1000,
+					name: `[name].[ext]`
+				}
+      },
+
+			{
+				test: /\.json$/,
+				loader: "json-loader"
+			},
     ]
   },
   resolve: {

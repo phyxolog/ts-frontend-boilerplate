@@ -1,8 +1,9 @@
 import * as React from "react";
 import { hot } from "react-hot-loader";
 import { Router, Route, Switch } from "react-router";
-import Root from "containers/Root";
-import IndexPage from "containers/IndexPage";
+
+import Root from "views/Root";
+import IndexPage from "views/IndexPage";
 
 /**
  * Render react DOM
