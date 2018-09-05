@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from "mobx-react";
 import { createBrowserHistory } from "history";
-import App from "App";
+import Application from "Application";
 
 const history = createBrowserHistory();
 
@@ -11,7 +11,7 @@ const history = createBrowserHistory();
  */
 ReactDOM.render(
   <Provider>
-    <App history={history} />
+    <Application history={history} />
   </Provider>,
   document.getElementById("root")
 );

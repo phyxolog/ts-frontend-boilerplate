@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --hot --progress --colors --port 3000",
     "build": "webpack -p --progress --colors",
-    "prettier": "prettier --write \"src/**/*.{ts,tsx,css,sass,js}\"",
+    "prettier": "prettier --write \"src/**/*.{ts,tsx,js}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
