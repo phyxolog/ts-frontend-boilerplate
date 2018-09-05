@@ -8,9 +8,9 @@ import IndexPage from "views/IndexPage";
 /**
  * Render react DOM
  */
-export default hot(module)(({ history }) => (
+export default hot(module)((props) => (
   <Root>
-    <Router history={history}>
+    <Router {...props}>
       <Switch>
         <Route path="/" component={IndexPage} />
       </Switch>

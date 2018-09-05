@@ -108,8 +108,8 @@ module.exports = {
   },
   performance: {
     hints: "warning",
-    maxAssetSize: 4000000,
-    maxEntrypointSize: 4000000
+    maxAssetSize: 5000000,
+    maxEntrypointSize: 5000000
   },
   parallelism: 2,
   ...(!isProduction

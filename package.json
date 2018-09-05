@@ -4,7 +4,7 @@
   "description": "Frontend Boilerplate with React, MobX & TypeScript",
   "main": "src/index.tsx",
   "scripts": {
-    "start": "webpack-dev-server --mode development --hot --progress --colors --port 3000",
+    "start": "webpack-dev-server --mode development --hot --progress --colors --open --port 3000",
     "build": "webpack -p --progress --colors",
     "prettier": "prettier --write \"./**/*.{ts,tsx,js}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -39,6 +39,7 @@
     "postcss-loader": "^3.0.0",
     "prettier": "^1.14.2",
     "react-hot-loader": "^4.3.6",
+    "react-router-dom": "^4.3.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
     "ts-loader": "^5.0.0",

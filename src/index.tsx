@@ -1,8 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { Provider } from "mobx-react";
-import { createBrowserHistory } from "history";
 import Application from "Application";
+import { createBrowserHistory } from "history";
 
 const history = createBrowserHistory();
 
@@ -10,8 +11,17 @@ const history = createBrowserHistory();
  * Render react DOM
  */
 ReactDOM.render(
-  <Provider>
-    <Application history={history} />
-  </Provider>,
+  <BrowserRouter>
+    <Provider>
+      <Switch>
+        <Route
+          path="/"
+          render={(props) => {
+            return <Application {...props} history={history} />;
+          }}
+        />
+      </Switch>
+    </Provider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
