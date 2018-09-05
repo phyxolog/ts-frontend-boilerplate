@@ -31,81 +31,79 @@ module.exports = {
         exclude: /node_modules/
       },
 
-      ...(isProduction ? [
-        {
-          test: /\.css$/,
-          loader: ExtractTextPlugin.extract({ fallback: "style-loader", use: "css-loader!postcss-loader" })
-        },
-        {
-          test: /\.sass$/,
-          loader: ExtractTextPlugin.extract({
-            fallback: "style-loader",
-            use: [
-              {
-                loader:"css-loader",
-                options: {
-                  minimize: true
-                }
-              },
-              {
-                loader: "sass-loader",
-                options: {
-                  includePaths: [
-                    path.resolve(__dirname, "src")
-                  ]
-                }
-              }
-            ]
-          })
-        }
-      ] : [
-        {
-          test: /\.sass$/,
-          loaders: [
-            "style-loader",
-            "css-loader",
-            "postcss-loader",
+      ...(isProduction
+        ? [
             {
-              loader: "sass-loader",
-              options: {
-                includePaths: [
-                  path.resolve(__dirname, "src")
+              test: /\.css$/,
+              loader: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: "css-loader!postcss-loader"
+              })
+            },
+            {
+              test: /\.sass$/,
+              loader: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: [
+                  {
+                    loader: "css-loader",
+                    options: {
+                      minimize: true
+                    }
+                  },
+                  {
+                    loader: "sass-loader",
+                    options: {
+                      includePaths: [path.resolve(__dirname, "src")]
+                    }
+                  }
                 ]
-              }
+              })
             }
           ]
-        },
+        : [
+            {
+              test: /\.sass$/,
+              loaders: [
+                "style-loader",
+                "css-loader",
+                "postcss-loader",
+                {
+                  loader: "sass-loader",
+                  options: {
+                    includePaths: [path.resolve(__dirname, "src")]
+                  }
+                }
+              ]
+            },
 
-        {
-          test: /\.css$/,
-          loaders: ["style-loader", "css-loader", "postcss-loader"]
-        },
-      ]),
+            {
+              test: /\.css$/,
+              loaders: ["style-loader", "css-loader", "postcss-loader"]
+            }
+          ]),
 
-			{
-				test: /\.(svg|woff|woff2|ttf|otf|png|jpg)$/,
-				include: [
-					path.resolve(__dirname, "node_modules"),
-					path.resolve(__dirname, "src"),
-				],
-				loader: "url-loader",
-				query: {
-					limit: 1000,
-					name: `[name].[ext]`
-				}
+      {
+        test: /\.(svg|woff|woff2|ttf|otf|png|jpg)$/,
+        include: [
+          path.resolve(__dirname, "node_modules"),
+          path.resolve(__dirname, "src")
+        ],
+        loader: "url-loader",
+        query: {
+          limit: 1000,
+          name: `[name].[ext]`
+        }
       },
 
-			{
-				test: /\.json$/,
-				loader: "json-loader"
-			},
+      {
+        test: /\.json$/,
+        loader: "json-loader"
+      }
     ]
   },
   resolve: {
-    modules: [
-      "node_modules",
-      path.resolve(__dirname, "src"),
-    ],
+    modules: ["node_modules", path.resolve(__dirname, "src")],
     extensions: [".js", ".jsx", ".sass", ".json", ".css", ".ts", ".tsx"]
   },
   performance: {
@@ -114,25 +112,25 @@ module.exports = {
     maxEntrypointSize: 4000000
   },
   parallelism: 2,
-  ...(!isProduction ? {
-    devServer: {
-      contentBase: sourcePath,
-      hot: true,
-      inline: true,
-      historyApiFallback: {
-        disableDotRule: true
-      },
-      stats: "minimal"
-    },
-    devtool: "cheap-module-eval-source-map",
-  } : {}),
+  ...(!isProduction
+    ? {
+        devServer: {
+          contentBase: sourcePath,
+          hot: true,
+          inline: true,
+          historyApiFallback: {
+            disableDotRule: true
+          },
+          stats: "minimal"
+        },
+        devtool: "cheap-module-eval-source-map"
+      }
+    : {}),
   plugins: [
-    ...(isProduction ? [
-      new ExtractTextPlugin("style.css"),
-    ] : []),
+    ...(isProduction ? [new ExtractTextPlugin("style.css")] : []),
     new WebpackCleanupPlugin(),
     new HtmlWebpackPlugin({
       template: "assets/index.html"
     })
-  ],
+  ]
 };
